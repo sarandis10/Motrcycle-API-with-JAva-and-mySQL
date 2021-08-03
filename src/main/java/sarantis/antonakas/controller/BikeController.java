@@ -5,10 +5,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import sarantis.antonakas.entity.Bike;
+import sarantis.antonakas.request.CreateBikeRequest;
 import sarantis.antonakas.response.BikeResponse;
 import sarantis.antonakas.service.BikeService;
 
@@ -20,7 +23,7 @@ public class BikeController {
 	@Autowired
 	BikeService bikeService; 
 	
-	@GetMapping("/getAll")
+	@GetMapping("getAll")
 	public List <BikeResponse> getAllBikes() {
 		List <Bike> bikeList=bikeService.getAllBikes();
 		List <BikeResponse> bikeResponseList = new ArrayList<BikeResponse>();
@@ -29,5 +32,11 @@ public class BikeController {
 			bikeResponseList.add(new BikeResponse(bike));
 		});
 		return bikeResponseList;
+	}
+	
+	@PostMapping("addbike")
+	public BikeResponse createBike(@RequestBody CreateBikeRequest createBikeRequest) {
+		Bike bike = bikeService.createBike(createBikeRequest);
+		return new BikeResponse(bike);
 	}
 }
