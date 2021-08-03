@@ -1,1 +1,14 @@
-# API using Java and mySQL
+API using Java and mySQL
+
+Purpose of the project is to prove that i have are transferable. 
+this time i am building a backend api with JAVA and mySQL 
+neither of them 2 technologies have been teached in the class. 
+
+i will add a proper read me in the end of the project 
+
+1.0 create the Controller 
+2.0 create the Response
+3.0 connect the java with the DB via the Entity 
+4.0 Crete the Repo/ Sata Access OBG
+5.0 add the Logic on the Service 
+6.0 return to the user the Response and not the Entity
