@@ -119,6 +119,19 @@ public class BikeController {
 		return bikeResponseList;
 	}
 	
+	@GetMapping("getallwithsorting")
+	public List<BikeResponse> getAllWithSorting(){
+		
+		List<Bike> bikeList=bikeService.getAllBikesSorted();
+		
+		List <BikeResponse> bikeResponseList = new ArrayList<BikeResponse>();
+		
+		bikeList.stream().forEach(bike->{
+			bikeResponseList.add(new BikeResponse(bike));
+		});
+		return bikeResponseList;
+}
+	
 	
 	
 	

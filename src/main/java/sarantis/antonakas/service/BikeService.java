@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import sarantis.antonakas.entity.Bike;
@@ -62,6 +63,13 @@ public class BikeService {
 		Pageable pageable= PageRequest.of(pageNo-1, pageSize);
 		
 		return bikeRepository.findAll(pageable).getContent();
+	}
+	
+	public List<Bike> getAllBikesSorted (){
+		Sort sort =Sort.by(Sort.Direction.ASC, "hp");
+		
+		return bikeRepository.findAll(sort);
+		
 	}
 	
 }
