@@ -48,4 +48,8 @@ public class BikeService {
 		return bikeRepository.findByMake(make);
 	}
 	
+	public List<Bike> getByMakeAndHp (String make, int hp){
+		return bikeRepository.findByMakeAndHp(make, hp);
+	}
+	
 }
