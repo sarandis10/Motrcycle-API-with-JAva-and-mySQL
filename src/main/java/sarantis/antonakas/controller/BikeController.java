@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import sarantis.antonakas.entity.Bike;
+import sarantis.antonakas.repository.BikeRepository;
 import sarantis.antonakas.request.CreateBikeRequest;
 import sarantis.antonakas.request.UpdateBikeRequest;
 import sarantis.antonakas.response.BikeResponse;
@@ -66,7 +67,17 @@ public class BikeController {
 		return bikeService.deleteBike(id);
 	}
 	
-	
+	@GetMapping("getbymake/{make}")
+	public List<BikeResponse> getByMake(@PathVariable String make){
+		List<Bike> bikeList=bikeService.getByMake(make);
+		
+		List <BikeResponse> bikeResponseList = new ArrayList<BikeResponse>();
+		
+		bikeList.stream().forEach(bike->{
+			bikeResponseList.add(new BikeResponse(bike));
+		});
+		return bikeResponseList;
+	}
 	
 	
 }

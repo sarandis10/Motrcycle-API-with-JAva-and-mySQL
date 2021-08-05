@@ -44,4 +44,8 @@ public class BikeService {
 		return "motorcycle is deleted!";
 	}
 	
+	public List<Bike> getByMake (String make){
+		return bikeRepository.findByMake(make);
+	}
+	
 }
