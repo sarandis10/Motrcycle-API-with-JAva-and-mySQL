@@ -3,6 +3,8 @@ package sarantis.antonakas.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import sarantis.antonakas.entity.Bike;
@@ -54,6 +56,12 @@ public class BikeService {
 	
 	public List<Bike> getByMakeOrHp (String make, int hp){
 		return bikeRepository.findByMakeOrHp(make, hp);
+	}
+	
+	public List<Bike> getAllBikesWithPagination (int pageNo, int pageSize){
+		Pageable pageable= PageRequest.of(pageNo-1, pageSize);
+		
+		return bikeRepository.findAll(pageable).getContent();
 	}
 	
 }

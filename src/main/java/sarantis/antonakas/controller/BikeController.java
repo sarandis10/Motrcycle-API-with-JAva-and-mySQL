@@ -93,7 +93,8 @@ public class BikeController {
 	
 	
 	@GetMapping("getbymakeorhp/{make}/{hp}")
-	public List<BikeResponse> getByMakeOrHp(@PathVariable String make,@PathVariable int hp){
+	public List<BikeResponse> getByMakeOrHp(@PathVariable String make,
+			@PathVariable int hp){
 		List<Bike> bikeList=bikeService.getByMakeOrHp(make,hp);
 		
 		List <BikeResponse> bikeResponseList = new ArrayList<BikeResponse>();
@@ -103,6 +104,22 @@ public class BikeController {
 		});
 		return bikeResponseList;
 	}
+	
+	@GetMapping("getallwithpagination")
+			public List<BikeResponse> getAllBikesWithPagination(@RequestParam int pageNo,
+					@RequestParam int pageSize){
+				
+		List<Bike> bikeList=bikeService.getAllBikesWithPagination(pageNo,pageSize);
+		
+		List <BikeResponse> bikeResponseList = new ArrayList<BikeResponse>();
+		
+		bikeList.stream().forEach(bike->{
+			bikeResponseList.add(new BikeResponse(bike));
+		});
+		return bikeResponseList;
+	}
+	
+	
 	
 	
 }
