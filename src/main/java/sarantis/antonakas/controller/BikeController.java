@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -53,9 +54,15 @@ public class BikeController {
 		Bike bike =bikeService.updateBike(updateBikeRequest);
 		return new BikeResponse(bike);
 	}
+	// i will try to do it below with the pathvariable instead
+//	@DeleteMapping("deletebike")
+//	public String deleteBike(@RequestParam long id) {
+//		return bikeService.deleteBike(id);
+//	}
 	
-	@DeleteMapping("deletebike")
-	public String deleteBike(@RequestParam long id) {
+	
+	@DeleteMapping("deletebike/{id}")
+	public String deleteBike(@PathVariable long id) {
 		return bikeService.deleteBike(id);
 	}
 	
