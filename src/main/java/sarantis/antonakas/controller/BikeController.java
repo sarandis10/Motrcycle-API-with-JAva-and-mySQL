@@ -8,12 +8,14 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import sarantis.antonakas.entity.Bike;
 import sarantis.antonakas.request.CreateBikeRequest;
+import sarantis.antonakas.request.UpdateBikeRequest;
 import sarantis.antonakas.response.BikeResponse;
 import sarantis.antonakas.service.BikeService;
 
@@ -42,4 +44,18 @@ public class BikeController {
 		
 		return new BikeResponse(bike);
 	}
+	
+	
+	@PutMapping("updatebike")
+	public BikeResponse updateBike(@Valid @RequestBody UpdateBikeRequest updateBikeRequest) {
+		Bike bike =bikeService.updateBike(updateBikeRequest);
+		return new BikeResponse(bike);
+	}
+	
+	
+	
+	
+	
+	
+	
 }
