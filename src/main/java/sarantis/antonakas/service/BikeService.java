@@ -36,7 +36,12 @@ public class BikeService {
 		}
 		
 		bike = bikeRepository.save(bike);
-		return bike;
-		
+		return bike;	
 	}
+	
+	public String deleteBike (long id) {
+		bikeRepository.deleteById(id);
+		return "motorcycle is deleted!";
+	}
+	
 }
