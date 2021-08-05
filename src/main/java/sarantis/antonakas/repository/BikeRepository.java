@@ -15,4 +15,6 @@ public interface BikeRepository extends JpaRepository<Bike, Long>{
 	List<Bike> findByMake(String make);
 	
 	List<Bike> findByMakeAndHp(String make,int hp);
+	
+	List<Bike> findByMakeOrHp(String make,int hp);
 }

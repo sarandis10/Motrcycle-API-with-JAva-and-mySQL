@@ -92,4 +92,17 @@ public class BikeController {
 	}
 	
 	
+	@GetMapping("getbymakeorhp/{make}/{hp}")
+	public List<BikeResponse> getByMakeOrHp(@PathVariable String make,@PathVariable int hp){
+		List<Bike> bikeList=bikeService.getByMakeOrHp(make,hp);
+		
+		List <BikeResponse> bikeResponseList = new ArrayList<BikeResponse>();
+		
+		bikeList.stream().forEach(bike->{
+			bikeResponseList.add(new BikeResponse(bike));
+		});
+		return bikeResponseList;
+	}
+	
+	
 }
