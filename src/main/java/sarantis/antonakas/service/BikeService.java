@@ -68,9 +68,11 @@ public class BikeService {
 	
 	public List<Bike> getAllBikesSorted (){
 		Sort sort =Sort.by(Sort.Direction.ASC, "hp");
-		
-		return bikeRepository.findAll(sort);
-		
+		return bikeRepository.findAll(sort);	
+	}
+	
+	public Integer updateBikeWithJpql (Long id, String model) {
+		return bikeRepository.updateModel(id, model);
 	}
 	
 }

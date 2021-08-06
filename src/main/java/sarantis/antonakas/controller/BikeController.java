@@ -132,6 +132,15 @@ public class BikeController {
 		return bikeResponseList;
 }
 	
+	@PutMapping("updatebike/{id}/{model}")
+	public String updateStudentWithJpql (@PathVariable Long id, @PathVariable String model) {
+		return bikeService.updateBikeWithJpql(id, model)+ " Bike(s) updated";
+	}
+	
+//	@DeleteMapping("deleteByFirstName/{firstName}")
+//	public String deleteStudent (@PathVariable String firstName) {
+//		return studentService.deleteStudent(firstName) + " Student(s) deleted";
+//	}
 	
 	
 	
