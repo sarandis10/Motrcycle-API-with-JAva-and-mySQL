@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -32,6 +34,10 @@ public class Bike {
 	
 	@Column(name="hp")
 	private int hp;
+	
+	@OneToOne
+	@JoinColumn(name="owner_id")
+	private Owner owner;
 	
 	public Bike (CreateBikeRequest createBikeRequest) {
 		this.make=createBikeRequest.getMake();

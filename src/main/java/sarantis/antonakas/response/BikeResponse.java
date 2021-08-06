@@ -29,11 +29,20 @@ public class BikeResponse {
 	
 	private int hp;
 	
+	private String name;
+	
+	private String surname;
+	
 	public BikeResponse (Bike bike) {
 		this.id= bike.getId();
 		this.make=bike.getMake();
 		this.model= bike.getModel();
 		this.hp=bike.getHp();
+		
+		this.name= bike.getOwner().getName();
+		this.surname=bike.getOwner().getSurname();
+		
+		
 	}
 	
 
