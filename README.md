@@ -48,6 +48,14 @@ This is the page you should be looking at:
 
 # 3.0 Challenges-Wins
 
+3.1 Syntax of Java is very different to other object oriented languages. Takes time to get used to it
+
+3.2 The filing structure  of java is different to others
+
+3.3 mySQL database is popular and easy to be configured
+
+3.4 Annotation Java provides can make life easier
+
 
 # 4.0 Conclusion 
 Hope you like my portfolio and offer me a position as a software engineer. And i think i will surprise you! in a good way!
