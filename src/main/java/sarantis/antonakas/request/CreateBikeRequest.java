@@ -18,5 +18,9 @@ public class CreateBikeRequest {
 	private String model;
 	
 	private int hp;
+	
+	private String name;
+	
+	private String surname;
 
 }

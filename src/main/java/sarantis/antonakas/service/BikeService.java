@@ -9,7 +9,9 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import sarantis.antonakas.entity.Bike;
+import sarantis.antonakas.entity.Owner;
 import sarantis.antonakas.repository.BikeRepository;
+import sarantis.antonakas.repository.OwnerRepository;
 import sarantis.antonakas.request.CreateBikeRequest;
 import sarantis.antonakas.request.UpdateBikeRequest;
 
@@ -19,6 +21,10 @@ public class BikeService {
 	@Autowired
 	BikeRepository bikeRepository;
 	
+	
+	@Autowired
+	OwnerRepository ownerRepository;
+	
 	public List<Bike> getAllBikes() {
 		 return bikeRepository.findAll();
 	}
@@ -26,6 +32,14 @@ public class BikeService {
 	
 	public Bike createBike(CreateBikeRequest createBikeRequest) {
 		Bike bike=new Bike(createBikeRequest);
+		
+		Owner owner= new Owner();
+		owner.setName(createBikeRequest.getName());
+		owner.setSurname(createBikeRequest.getSurname());
+		
+		owner = ownerRepository.save(owner);
+		
+		bike.setOwner(owner);
 		
 		bike = bikeRepository.save(bike);
 		return bike;
