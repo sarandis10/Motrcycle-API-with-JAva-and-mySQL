@@ -1,4 +1,8 @@
 # Motrcycle-API-with-JAva-and-mySQL
 
-The last working version is the f13bad90e85aa0341b16c21ca91c9e82485a32fe
-but will be coming without the read me fiel
+This is another API the third in a row which is made with JAVA and mySQL
+the whole point of this exercise was to practice my JAVA skills and prove that my skill-set is transferable to various languages and technologies 
+
+# 1.0 To run the app
+
+1.1 Open it with STS and run it as a spring app from the main application 
